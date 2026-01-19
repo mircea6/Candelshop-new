@@ -20,31 +20,31 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Link 
+            <Link
               href="/DespreNoi"
               className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
             >
               Despre Noi →
             </Link>
-            <Link 
+            <Link
               href="/produse"
               className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
             >
               Vezi Produse →
             </Link>
-            <Link 
+            <Link
               href="/PoliticaCookie"
               className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
             >
               Politica de Cookie →
             </Link>
-            <Link 
+            <Link
               href="/PoliticaGDPR"
               className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
             >
               Politica GDPR →
             </Link>
-            <Link 
+            <Link
               href="/Contact"
               className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
             >
@@ -53,7 +53,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Grid de produse */}
+        <div>
+          <h1 className="text-2xl font-bold text-black dark:text-zinc-50">{products[0].name}</h1>
+          <h2>{products[0].price} RON</h2>
+        </div>
+        <div>
+          {products.map(product => <div>
+            <h1>{product.name}</h1>
+            <h2>{product.price} RON</h2>
+          </div>)}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <div
