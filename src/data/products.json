@@ -1,0 +1,73 @@
+[
+    {
+      "id": "cndl-001",
+      "name": "Lumanare Vanilie Cozy",
+      "price": 59.9,
+      "currency": "RON",
+      "scent": "Vanilie",
+      "wax": "soia",
+      "burnTimeHours": 35,
+      "sizeGrams": 220,
+      "inStock": true,
+      "image": "/images/candles/vanilla-cozy.jpg",
+      "description": "Aroma calda de vanilie, potrivita pentru seri linistite. Fitil din bumbac, ardere curata.",
+      "createdAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "cndl-002",
+      "name": "Lumanare Lemn de Santal",
+      "price": 69.9,
+      "currency": "RON",
+      "scent": "Lemn de santal",
+      "wax": "soia",
+      "burnTimeHours": 40,
+      "sizeGrams": 240,
+      "inStock": true,
+      "image": "/images/candles/sandalwood.jpg",
+      "description": "Note elegante, usor cremoase. Perfecta pentru birou sau living.",
+      "createdAt": "2026-01-11T12:30:00.000Z"
+    },
+    {
+      "id": "cndl-003",
+      "name": "Lumanare Citrus Fresh",
+      "price": 54.9,
+      "currency": "RON",
+      "scent": "Citrice",
+      "wax": "rapita",
+      "burnTimeHours": 30,
+      "sizeGrams": 200,
+      "inStock": false,
+      "image": "/images/candles/citrus-fresh.jpg",
+      "description": "Explozie fresh de portocala si grapefruit. Ideala pentru dimineti energice.",
+      "createdAt": "2026-01-12T09:15:00.000Z"
+    },
+    {
+      "id": "cndl-004",
+      "name": "Lumanare Lavanda Calm",
+      "price": 64.9,
+      "currency": "RON",
+      "scent": "Lavanda",
+      "wax": "soia",
+      "burnTimeHours": 38,
+      "sizeGrams": 230,
+      "inStock": true,
+      "image": "/images/candles/lavender-calm.jpg",
+      "description": "Lavanda delicata pentru relaxare. Buna pentru rutina de seara.",
+      "createdAt": "2026-01-13T18:45:00.000Z"
+    },
+    {
+      "id": "cndl-005",
+      "name": "Lumanare Scortisoara & Mar",
+      "price": 74.9,
+      "currency": "RON",
+      "scent": "Scortisoara si mar",
+      "wax": "cocos",
+      "burnTimeHours": 42,
+      "sizeGrams": 260,
+      "inStock": true,
+      "image": "/images/candles/cinnamon-apple.jpg",
+      "description": "Aroma de iarna, dulce-condimentata. Creeaza instant vibe de sarbatori.",
+      "createdAt": "2026-01-14T14:20:00.000Z"
+    }
+  ]
+  
