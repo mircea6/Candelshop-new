@@ -13,32 +13,32 @@ export default function Home() {
         </p>
 
         <Link 
-          href="/admin/DespreNoi"
+          href="/DespreNoi"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
         >
           Despre Noi →
         </Link>
         {/* Buton pentru a naviga la pagina de produse */}
         <Link 
-          href="/admin/produse"
+          href="/produse"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
         >
           Vezi Produse →
         </Link>
         <Link 
-          href="/admin/PoliticaCookie"
+          href="/PoliticaCookie"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
         >
           Politica de Cookie →
         </Link>
         <Link 
-          href="/admin/PoliticaGDPR"
+          href="/PoliticaGDPR"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
         >
           Politica GDPR →
         </Link>
         <Link 
-          href="/admin/Contact"
+          href="/Contact"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
         >
           Contact →
