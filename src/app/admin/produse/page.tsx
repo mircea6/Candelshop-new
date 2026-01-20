@@ -21,6 +21,9 @@ export default function AdminProduse() {
     description: "",
   });
 
+  const [uploading, setUploading] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string>("");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -33,6 +36,43 @@ export default function AdminProduse() {
       setFormData((prev) => ({ ...prev, [name]: Number(value) }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Preview local
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+
+    // Upload la Cloudinary
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+
+      const data = await response.json();
+      setFormData((prev) => ({ ...prev, image: data.url }));
+      alert('Imagine încărcată cu succes!');
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('Eroare la încărcarea imaginii');
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -60,6 +100,7 @@ export default function AdminProduse() {
       image: "",
       description: "",
     });
+    setImagePreview("");
 
     alert("Produs adăugat cu succes!");
   };
@@ -218,17 +259,36 @@ export default function AdminProduse() {
           {/* Imagine */}
           <div>
             <label htmlFor="image" className="block text-sm font-medium text-black dark:text-zinc-50 mb-2">
-              URL Imagine
+              Imagine Produs
             </label>
             <input
-              type="text"
+              type="file"
               id="image"
               name="image"
-              value={formData.image}
-              onChange={handleChange}
-              placeholder="/images/candles/example.jpg"
-              className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-zinc-50"
+              accept="image/*"
+              onChange={handleImageUpload}
+              disabled={uploading}
+              className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-zinc-50 disabled:opacity-50"
             />
+            {uploading && (
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                Se încarcă imaginea...
+              </p>
+            )}
+            {imagePreview && (
+              <div className="mt-4">
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="w-32 h-32 object-cover rounded-lg border border-zinc-300 dark:border-zinc-700"
+                />
+              </div>
+            )}
+            {formData.image && (
+              <p className="mt-2 text-sm text-green-600 dark:text-green-400">
+                ✓ Imagine încărcată cu succes
+              </p>
+            )}
           </div>
 
           {/* În stoc */}
