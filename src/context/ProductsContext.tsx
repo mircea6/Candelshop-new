@@ -5,7 +5,7 @@ import type { Product } from "@/types/Product.tsx";
 
 type ProductsContextValue = {
   products: Product[];
-  addProduct: (product: Product) => void;
+  addProduct: (product: Omit<Product, "id" | "createdAt">) => Promise<void>;
   loading: boolean;
   error: string | null;
 };

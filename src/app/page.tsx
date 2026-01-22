@@ -73,12 +73,12 @@ export default function Home() {
                 className="bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
               >
                 {product.image && (
-                  <div className="mb-4 w-full h-48 relative rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                  <div className="mb-4 w-full aspect-square relative rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-2"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
@@ -95,6 +95,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
         )}
       </main>
     </div>
