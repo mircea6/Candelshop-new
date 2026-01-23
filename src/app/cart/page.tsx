@@ -104,7 +104,7 @@ export default function Cart() {
                     </button>
                   </div>
                   <p className="text-lg font-bold text-black dark:text-zinc-50">
-                    Total: {item.product.price * item.quantity}{" "}
+                    Total: {(item.product.price * item.quantity).toFixed(2)}{" "}
                     {item.product.currency}
                   </p>
                   <button
@@ -128,7 +128,7 @@ export default function Cart() {
                   Total produse: {totalItems}
                 </p>
                 <p className="text-2xl font-bold text-black dark:text-zinc-50">
-                  Total: {totalPrice} RON
+                  Total: {totalPrice.toFixed(2)} RON
                 </p>
               </div>
               <button
@@ -138,11 +138,10 @@ export default function Cart() {
                 Golește coșul
               </button>
             </div>
-            <link
-              href="/checkout"
+            <Link              href="/checkout"
               className="block w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-center">
               Finalizează comanda
-            </link>
+            </Link>
           </div>
         )}
       </div>
