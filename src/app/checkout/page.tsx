@@ -236,7 +236,7 @@ export default function Checkout() {
                     </p>
                   </div>
                   <p className="font-bold text-black dark:text-zinc-50">
-                    {item.product.price * item.quantity} RON
+                    {(item.product.price * item.quantity).toFixed(2)} RON
                   </p>
                 </div>
               ))}
@@ -248,7 +248,7 @@ export default function Checkout() {
                   Total:
                 </span>
                 <span className="text-2xl font-bold text-black dark:text-zinc-50">
-                  {totalPrice} RON
+                  {totalPrice.toFixed(2)} RON
                 </span>
               </div>
             </div>

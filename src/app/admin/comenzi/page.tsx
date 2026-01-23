@@ -160,7 +160,7 @@ export default function AdminComenzi() {
                             {item.product.name} x {item.quantity}
                           </span>
                           <span className="font-semibold text-black dark:text-zinc-50">
-                            {item.product.price * item.quantity} RON
+                            {(item.product.price * item.quantity).toFixed(2)} RON
                           </span>
                         </div>
                       ))}
@@ -174,7 +174,7 @@ export default function AdminComenzi() {
                         Total:
                       </span>
                       <span className="text-2xl font-bold text-black dark:text-zinc-50">
-                        {order.totalPrice} RON
+                        {order.totalPrice.toFixed(2)} RON
                       </span>
                     </div>
                   </div>
