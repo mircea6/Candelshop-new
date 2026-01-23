@@ -2,9 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import ProductModel from '@/models/Product';
 
+type RouteHandlerContext = {
+  params: Promise<{ id: string }>;
+};
+
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  context: RouteHandlerContext
 ) {
   try {
     await connectDB();
@@ -45,7 +49,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  context: RouteHandlerContext
 ) {
   try {
     await connectDB();
@@ -92,7 +96,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  context: RouteHandlerContext
 ) {
   try {
     await connectDB();
