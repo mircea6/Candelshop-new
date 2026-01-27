@@ -47,14 +47,36 @@ export default function Checkout() {
 
     setLoading(true);
     setError("");
-
+  
     try {
-      // Trimite comanda către API
+      if (formData.paymentMethod === "card") {
+        const res = await fetch("/api/stripe/checkout-session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerName: formData.customerName,
+            customerEmail: formData.customerEmail,
+            customerPhone: formData.customerPhone,
+            customerAddress: formData.customerAddress,
+            items: cartItems,
+            totalPrice,
+          }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || "Eroare la sesiunea de plată");
+        }
+        const { url } = await res.json();
+        if (url) {
+          window.location.href = url;
+          return;
+        }
+        throw new Error("Nu s-a primit URL de plată");
+      }
+
       const response = await fetch("/api/orders", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           items: cartItems,
@@ -68,19 +90,14 @@ export default function Checkout() {
 
       const order = await response.json();
       console.log("Comandă salvată:", order);
-
-      // Golește coșul
       clearCart();
-
-      // Redirecționează către o pagină de succes (opțional)
       router.push("/?success=true");
     } catch (err) {
       console.error("Error:", err);
       setError("Eroare la finalizarea comenzii. Încearcă din nou.");
     } finally {
       setLoading(false);
-    }
-  };
+    };
 
   // Dacă coșul este gol, redirecționează
   if (cartItems.length === 0) {
@@ -257,4 +274,5 @@ export default function Checkout() {
       </div>
     </div>
   );
+}
 }
