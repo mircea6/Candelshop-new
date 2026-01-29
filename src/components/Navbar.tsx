@@ -51,7 +51,7 @@ export default function Navbar() {
                         alt="Logo magazin"
                         width={280}
                         height={120}
-                        className="h-20 w-auto object-contain"
+                        className="h-30 w-auto object-contain"
                         unoptimized
                     />
                 </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
                         aria-label="Instagram"
                         className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
                             <defs>
                                 <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stopColor="#833AB4" />
@@ -83,7 +83,7 @@ export default function Navbar() {
                         aria-label="TikTok"
                         className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#000000">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000">
                             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                         </svg>
                     </a>
@@ -95,7 +95,7 @@ export default function Navbar() {
                         aria-label="Sună pe WhatsApp"
                         className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                     </a>
@@ -105,7 +105,7 @@ export default function Navbar() {
                         aria-label={`Coș: ${totalItems} produse`}
                         className="relative p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="9" cy="21" r="1" />
                             <circle cx="20" cy="21" r="1" />
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
