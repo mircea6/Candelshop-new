@@ -3,10 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
+import { useState } from "react";
+import MenuDrawer from "./MenuDrawer";
 
 export default function Navbar() {
     const { getTotalItems } = useCart();
     const totalItems = getTotalItems();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <header
@@ -17,13 +20,14 @@ export default function Navbar() {
                 <div className="w-5 flex justify-center">
                     <button
                         type="button"
+                        onClick={() => setMenuOpen(true)}
                         aria-label="Deschide meniul"
                         className="p-2 hover:bg-zinc-100 rounded-lg transition-colors"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="48"
-                            height="48"
+                            width="40"
+                            height="40"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -41,9 +45,9 @@ export default function Navbar() {
                     <Image
                         src="/logo-candelstore.jpg"
                         alt="Logo magazin"
-                        width={380}
-                        height={160}
-                        className="h-30 w-auto object-contain"
+                        width={280}
+                        height={120}
+                        className="h-20 w-auto object-contain"
                         unoptimized
                     />
                 </Link>
@@ -103,6 +107,7 @@ export default function Navbar() {
                     </Link>
                 </div>
             </div>
+            <MenuDrawer isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
         </header>
     );
 }

@@ -17,8 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+<footer id="footer" className="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
           {/* Logo + mesaj */}
           <div className="lg:col-span-1">
