@@ -3,9 +3,12 @@ import Stripe from "stripe";
 import connectDB from "@/lib/mongodb";
 import OrderModel from "@/models/Order";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 export async function POST(request: Request) {
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+  if (!stripeSecretKey) {
+    return NextResponse.json({ error: "Stripe secret key not configured" }, { status: 500 });
+  }
+  const stripe = new Stripe(stripeSecretKey);
   try {
     const body = await request.json();
     const { customerName, customerEmail, customerPhone, customerAddress, items, totalPrice } = body;
