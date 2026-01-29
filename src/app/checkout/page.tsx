@@ -97,7 +97,8 @@ export default function Checkout() {
       setError("Eroare la finalizarea comenzii. Încearcă din nou.");
     } finally {
       setLoading(false);
-    };
+    }
+  };
 
   // Dacă coșul este gol, redirecționează
   if (cartItems.length === 0) {
@@ -274,5 +275,4 @@ export default function Checkout() {
       </div>
     </div>
   );
-}
 }

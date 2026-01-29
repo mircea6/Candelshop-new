@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import type { CartItem } from "@/types/CartItem";
 import type { Product } from "@/types/Product";
 
@@ -69,10 +69,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
-  // Funcția care golește coșul
-  const clearCart = () => {
+  // Funcția care golește coșul (useCallback ca referința să fie stabilă — evită bucle în useEffect care depind de clearCart)
+  const clearCart = useCallback(() => {
     setCartItems([]);
-  };
+  }, []);
 
   // Funcția care calculează totalul prețurilor
   const getTotalPrice = () => {
