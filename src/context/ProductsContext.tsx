@@ -23,16 +23,17 @@ export function ProductsProvider({ children }: { children: React.ReactNode }) {
       setError(null);
       const response = await fetch('/api/products');
 
-      console.log(response);
-      
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Failed to fetch products');
+        const msg = (data.detail || data.error) ?? 'Nu s-au putut încărca produsele. Verifică conexiunea la baza de date.';
+        throw new Error(msg);
       }
-      
-      const data = await response.json();
-      setProducts(data);
+
+      setProducts(Array.isArray(data) ? data : []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'A apărut o eroare.');
+      setProducts([]);
       console.error('Error fetching products:', err);
     } finally {
       setLoading(false);

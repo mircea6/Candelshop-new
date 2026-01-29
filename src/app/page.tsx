@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useProducts } from "@/context/ProductsContext";
 import { useCart } from "@/context/CartContext";
+import HeroSlider from "@/components/HeroSlider";
+
 
 
 export default function Home() {
@@ -13,6 +15,7 @@ export default function Home() {
 
   return (
     <div className="text-center mb-12 relative">
+      <HeroSlider />
       {/* Iconița de coș - poziționată în colțul dreapta sus */}
       <Link
         href="/cart"
@@ -134,7 +137,7 @@ export default function Home() {
 
     )
   }
-      </main >
+      </main>
     </div >
   );
 }
