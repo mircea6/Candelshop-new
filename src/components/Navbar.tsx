@@ -3,13 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { useState } from "react";
-import MenuDrawer from "./MenuDrawer";
+import { useState, useCallback } from "react";
+import MenuDrawer from "@/components/MenuDrawer";
 
 export default function Navbar() {
     const { getTotalItems } = useCart();
     const totalItems = getTotalItems();
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleCloseMenu = useCallback(() => {
+        setMenuOpen(false);
+    }, []);
 
     return (
         <header
@@ -107,7 +111,7 @@ export default function Navbar() {
                     </Link>
                 </div>
             </div>
-            <MenuDrawer isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+            <MenuDrawer isOpen={menuOpen} onClose={handleCloseMenu} />
         </header>
     );
 }
