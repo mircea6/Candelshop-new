@@ -1,5 +1,5 @@
 "use client";
-import { FC, Suspense, useRef, useLayoutEffect, useEffect } from "react";
+import { FC, Suspense, useRef, useLayoutEffect, useEffect, useState } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -11,7 +11,6 @@ import {
   ContactShadows,
   Center,
 } from "@react-three/drei";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import * as THREE from "three";
 
 // ---
@@ -110,18 +109,47 @@ const ObjContent: FC<{ url: string; onLoaded: () => void }> = ({
   url,
   onLoaded,
 }) => {
-  const obj = useLoader(OBJLoader as unknown as any, url);
-  useLayoutEffect(() => {
-    if (obj) {
-      obj.traverse((o) => {
-        if ((o as THREE.Mesh).isMesh) {
-          o.castShadow = true;
-          o.receiveShadow = true;
+  const [obj, setObj] = useState<THREE.Group | null>(null);
+  
+  useEffect(() => {
+    let mounted = true;
+    const loadObj = async () => {
+      try {
+        // Dynamic import for OBJLoader to avoid SSR issues
+        const { OBJLoader } = await import("three/examples/jsm/loaders/OBJLoader.js");
+        const loader = new OBJLoader();
+        const loadedObj = await new Promise<THREE.Group>((resolve, reject) => {
+          loader.load(
+            url,
+            (object) => resolve(object),
+            undefined,
+            (error) => reject(error)
+          );
+        });
+        
+        if (mounted) {
+          loadedObj.traverse((o) => {
+            if ((o as THREE.Mesh).isMesh) {
+              o.castShadow = true;
+              o.receiveShadow = true;
+            }
+          });
+          setObj(loadedObj);
+          onLoaded();
         }
-      });
-      onLoaded();
-    }
-  }, [obj, onLoaded]);
+      } catch (error) {
+        console.error("Failed to load OBJ model:", error);
+        if (mounted) onLoaded();
+      }
+    };
+    
+    loadObj();
+    return () => {
+      mounted = false;
+    };
+  }, [url, onLoaded]);
+  
+  if (!obj) return null;
   return <primitive object={obj.clone()} />;
 };
 

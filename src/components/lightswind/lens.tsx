@@ -2,10 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { AnimatePresence, motion, Easing } from "framer-motion";
-
-function cn(...inputs: (string | undefined | null | boolean)[]) {
-  return inputs.filter(Boolean).join(" ");
-}
+import { cn } from "@/lib/utils";
 
 interface LensProps {
   children: React.ReactNode;

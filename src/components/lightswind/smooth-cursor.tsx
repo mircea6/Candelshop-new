@@ -2,10 +2,7 @@
 
 import { motion, useSpring } from "framer-motion";
 import { FC, JSX, useEffect, useRef, useState } from "react";
-// Utility function 'cn' (classnames) - implemented directly to resolve import error
-function cn(...inputs: (string | undefined | null | boolean)[]) {
-  return inputs.filter(Boolean).join(" ");
-}
+import { cn } from "@/lib/utils";
 
 interface Position {
   x: number;
