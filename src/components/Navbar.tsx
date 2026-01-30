@@ -51,7 +51,7 @@ export default function Navbar() {
                         alt="Logo magazin"
                         width={280}
                         height={120}
-                        className="h-30 w-auto object-contain"
+                        className="h-32 w-auto object-contain"
                         unoptimized
                     />
                 </Link>

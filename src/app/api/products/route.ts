@@ -27,16 +27,9 @@ export async function GET() {
   } catch (error) {
     console.error('Error fetching products:', error);
     const detail = error instanceof Error ? error.message : 'Eroare necunoscută';
-    
-    // În production, oferim un mesaj mai clar dacă e problemă de conexiune
-    const isConnectionError = detail.includes('connect') || detail.includes('whitelist') || detail.includes('MongoNetworkError');
-    const userMessage = isConnectionError 
-      ? 'Conexiune la baza de date eșuată. Verifică configurarea MongoDB Atlas.'
-      : 'Failed to fetch products';
-    
     return NextResponse.json(
       {
-        error: userMessage,
+        error: 'Failed to fetch products',
         ...(process.env.NODE_ENV === 'development' && { detail }),
       },
       { status: 500 }
