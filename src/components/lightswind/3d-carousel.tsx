@@ -8,7 +8,7 @@ import React, {
   TouchEvent,
 } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/app/component2/ui/card";
+import { Card, CardContent } from "@/components/lightswind/card";
 import { useIsMobile } from "../hooks/use-mobile";
 import Link from "next/link";
 
