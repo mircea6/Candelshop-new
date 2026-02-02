@@ -36,7 +36,7 @@ export default function RootLayout({
           <TrainingProvider>
             <CartProvider>
               <Navbar />  
-              <main className="pt-52">
+              <main className="pt-52 bg-[#F6F4F1]">
                 {children}
               </main>
               <Footer />

@@ -87,6 +87,7 @@ export default function Home() {
             animationDuration="0.8s"
             sectionHeightMultiplier={4}
             className="mx-auto"
+            backgroundColor="bg-transparent"
           />
         </div>
       </section>
@@ -117,7 +118,7 @@ export default function Home() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white dark:bg-zinc-900 rounded-lg  border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
+                  className="bg-transparent rounded-lg  border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
                 >
                   {product.image && (
                     <div className="mb-4 w-full min-h-[320px] aspect-[3/4] relative overflow-hidden">
