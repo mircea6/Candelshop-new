@@ -16,21 +16,36 @@ export default function Home() {
   const scrollStackCards = [
     {
       title: "Lumanari handmade realizate cu atentie si grija in atelierul nostru",
+      backgroundImage: "/Background-Cards.png",
+      content: (
+        <div className="flex items-center justify-center gap-4 sm:gap-6 h-full w-full px-4">
+          <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 relative">
+            <Image
+              src="/Icon-handmade-removebg-preview.png"
+              alt="Handmade"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight text-center max-w-md">
+            Lumanari handmade realizate cu atentie si grija in atelierul nostru
+          </h3>
+        </div>
+      ),
     },
     {
       title: "Produse realizate din ceara de soia naturala 100%",
-      backgroundImage: "https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg",
+      backgroundImage: "/Background-Cards.png",
     },
     {
       title: "Parfumanti de inalta calitate care persista si creaza o experienta unica",
-
+      backgroundImage: "/Background-Cards.png",
     },
-
   ];
 
   return (
     <div className="text-center mb-12">
-      <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
+      <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-12">
         Bine ai venit în magazinul nostru!
       </h1>
       <HeroSlider />
