@@ -183,15 +183,16 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
             >
               {React.Children.map(children, (child, index) => {
                 if (React.isValidElement(child) && child.type === GlowingCard) {
-                  const cardGlowColor = child.props.glowColor || "#3b82f6";
+                  const childProps = child.props as Record<string, unknown>;
+                  const cardGlowColor = (childProps.glowColor as string) || "#3b82f6";
                   return React.cloneElement(child as React.ReactElement<any>, {
                     className: cn(
-                      child.props.className,
+                      (childProps.className as string),
                       "bg-opacity-15 dark:bg-opacity-15",
                       "border-opacity-100 dark:border-opacity-100"
                     ),
                     style: {
-                      ...child.props.style,
+                      ...(childProps.style as React.CSSProperties || {}),
                       // String concatenation for background, border, and boxShadow
                       backgroundColor: cardGlowColor + "15",
                       borderColor: cardGlowColor,

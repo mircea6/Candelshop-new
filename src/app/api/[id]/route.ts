@@ -2,18 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import ProductModel from '@/models/Product';
 
-type RouteHandlerContext = {
-  params: Promise<{ id: string }>;
-};
-
 export async function GET(
   request: NextRequest,
-  context: RouteHandlerContext
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const params = await context.params;
-    const product = await ProductModel.findById(params.id);
+    const { id } = await params;
+    const product = await ProductModel.findById(id);
 
     if (!product) {
       return NextResponse.json(
@@ -49,15 +45,15 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  context: RouteHandlerContext
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const params = await context.params;
+    const { id } = await params;
     const body = await request.json();
     
     const product = await ProductModel.findByIdAndUpdate(
-      params.id,
+      id,
       body,
       { new: true, runValidators: true }
     );
@@ -96,12 +92,12 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context: RouteHandlerContext
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    const params = await context.params;
-    const product = await ProductModel.findByIdAndDelete(params.id);
+    const { id } = await params;
+    const product = await ProductModel.findByIdAndDelete(id);
 
     if (!product) {
       return NextResponse.json(

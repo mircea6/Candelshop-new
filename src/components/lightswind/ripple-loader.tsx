@@ -77,7 +77,7 @@ const RippleLoader: React.FC<RippleLoaderProps> = ({
                   height: "100%",
                   fill: "currentColor",
                 },
-              })}
+              } as any)}
           </span>
         </motion.span>
       </div>

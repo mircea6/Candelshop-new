@@ -17,7 +17,7 @@ export interface SpringConfig {
 }
 
 export interface SmoothCursorProps {
-  cursor?: JSX.Element;
+  cursor?: React.JSX.Element;
   springConfig?: SpringConfig;
   className?: string;
   size?: number;

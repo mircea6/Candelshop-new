@@ -73,21 +73,22 @@ const CollapsibleTrigger = React.forwardRef<HTMLButtonElement, CollapsibleTrigge
       return (
         <>
           {React.Children.map(children, child => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, {
-                ...child.props,
-                ref,
-                onClick: (e: React.MouseEvent) => {
-                  handleClick();
-                  if (child.props.onClick) {
-                    child.props.onClick(e);
-                  }
-                },
-                disabled: disabled || child.props.disabled,
-                "data-state": open ? "open" : "closed",
-                "data-disabled": disabled ? "" : undefined,
-                "aria-expanded": open,
-              });
+            if (React.isValidElement(child)) {
+              const childProps = child.props as Record<string, unknown>;
+              return React.cloneElement(child, {
+                ...childProps,
+                ref,
+                onClick: (e: React.MouseEvent) => {
+                  handleClick();
+                  if (childProps.onClick && typeof childProps.onClick === 'function') {
+                    (childProps.onClick as (e: React.MouseEvent) => void)(e);
+                  }
+                },
+                disabled: disabled || (childProps.disabled as boolean),
+                "data-state": open ? "open" : "closed",
+                "data-disabled": disabled ? "" : undefined,
+                "aria-expanded": open,
+              } as any);
             }
             return child;
           })}

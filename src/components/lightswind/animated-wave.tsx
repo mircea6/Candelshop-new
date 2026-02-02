@@ -2,8 +2,16 @@
 
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import * as THREE from 'three';
-import { createNoise2D } from 'simplex-noise';
+// import { createNoise2D } from 'simplex-noise'; // Optional dependency - not installed
 import { cn } from '../../lib/utils'; // Assuming this utility is correctly set up
+
+// Fallback noise function if simplex-noise is not available
+const createNoise2D = () => {
+  return (x: number, y: number, z?: number) => {
+    const time = z || 0;
+    return Math.sin(x * 0.1 + time) * Math.cos(y * 0.1 + time);
+  };
+};
 
 export interface AnimatedWaveProps {
   /** Custom CSS class name */
@@ -110,6 +118,16 @@ const addEase = (
   pos.x += (to.x - pos.x) / ease;
   pos.y += (to.y - pos.y) / ease;
   pos.z += (to.z - pos.z) / ease;
+};
+
+const addEaseEuler = (
+  rot: THREE.Euler,
+  to: THREE.Euler,
+  ease: number
+) => {
+  rot.x += (to.x - rot.x) / ease;
+  rot.y += (to.y - rot.y) / ease;
+  rot.z += (to.z - rot.z) / ease;
 };
 
 const getElementBackground = (element: HTMLElement): string | null => {
@@ -272,7 +290,7 @@ const AnimatedWave: React.FC<AnimatedWaveProps> = ({
       // Initial position of the entire wave group in 3D space
       move: new THREE.Vector3(0, waveOffsetY, cameraDistance),
       // Initial rotation of the entire wave group
-      look: new THREE.Vector3((waveRotation * Math.PI) / 180, 0, 0), // Convert degrees to radians for X-axis rotation
+      look: new THREE.Euler((waveRotation * Math.PI) / 180, 0, 0), // Convert degrees to radians for X-axis rotation
 
       // Mouse distortion properties
       mouseDistortionStrength: mouseDistortionStrength,
@@ -430,7 +448,7 @@ const AnimatedWave: React.FC<AnimatedWaveProps> = ({
           this.move.x = -(mouse.x * 0.04);
           this.move.y = waveOffsetY + (mouse.y * 0.04); // Add Y movement with corrected direction
           addEase(this.group.position, this.move, this.ease);
-          addEase(this.group.rotation, this.look, this.ease);
+          addEaseEuler(this.group.rotation, this.look, this.ease);
         }
       },
 

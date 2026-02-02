@@ -29,7 +29,7 @@ const MagicLoader: React.FC<MagicLoaderProps> = ({
   className
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const particlesRef = useRef<Particle[]>([]);
   const tickRef = useRef(0);
   const globalAngleRef = useRef(0);

@@ -81,11 +81,12 @@ const DialogTrigger = React.forwardRef<HTMLDivElement, DialogTriggerProps & Reac
    {...otherProps}
   >
    {React.Children.map(children, child => {
-   if (React.isValidElement(child)) {
- return React.cloneElement(child, {
-    ...child.props
- });
-   }
+    if (React.isValidElement(child)) {
+      const childProps = child.props as Record<string, unknown>;
+      return React.cloneElement(child, {
+        ...childProps
+      } as any);
+    }
    return child;
    })}
   </div>

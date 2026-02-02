@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { Flipper, Flipped } from 'react-flip-toolkit';
+// import { Flipper, Flipped } from 'react-flip-toolkit'; // Removed unused dependency
 import { X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
@@ -405,34 +405,31 @@ const AnimatedNotification: React.FC<AnimatedNotificationProps> = ({
       }} />
 
       <div className={cn(getPositionStyles(), className)}>
-        <Flipper flipKey={notes.map((note) => note.id).join("")}>
-          <div className="flex flex-col gap-4 items-center" style={{ width }}>
-            {notes.map((note) => (
-              <Flipped key={note.id} flipId={note.id}>
-                <div
-                  className={cn(
-                    "notification-item",
-                    note.fadingOut ? "notification-exit" : "notification-enter"
-                  )}
-                  style={{ '--animation-duration': `${animationDuration}ms` } as React.CSSProperties}
-                >
-                  <Notification
-                    notification={note}
-                    showAvatars={showAvatars}
-                    showTimestamps={showTimestamps}
-                    variant={variant}
-                    allowDismiss={allowDismiss}
-                    onClick={() => onNotificationClick?.(note)}
-                    onDismiss={() => {
-                      onNotificationDismiss?.(note);
-                      dismissNotification(note.id);
-                    }}
-                  />
-                </div>
-              </Flipped>
-            ))}
-          </div>
-        </Flipper>
+        <div className="flex flex-col gap-4 items-center" style={{ width }}>
+          {notes.map((note) => (
+            <div
+              key={note.id}
+              className={cn(
+                "notification-item",
+                note.fadingOut ? "notification-exit" : "notification-enter"
+              )}
+              style={{ '--animation-duration': `${animationDuration}ms` } as React.CSSProperties}
+            >
+              <Notification
+                notification={note}
+                showAvatars={showAvatars}
+                showTimestamps={showTimestamps}
+                variant={variant}
+                allowDismiss={allowDismiss}
+                onClick={() => onNotificationClick?.(note)}
+                onDismiss={() => {
+                  onNotificationDismiss?.(note);
+                  dismissNotification(note.id);
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

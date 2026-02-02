@@ -116,6 +116,7 @@ const ObjContent: FC<{ url: string; onLoaded: () => void }> = ({
     const loadObj = async () => {
       try {
         // Dynamic import for OBJLoader to avoid SSR issues
+        // @ts-ignore - Dynamic import for three.js loader
         const { OBJLoader } = await import("three/examples/jsm/loaders/OBJLoader.js");
         const loader = new OBJLoader();
         const loadedObj = await new Promise<THREE.Group>((resolve, reject) => {
