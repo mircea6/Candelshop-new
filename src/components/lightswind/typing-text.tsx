@@ -11,7 +11,7 @@ import { cn } from "../../lib/utils";
 
 export interface TypingTextProps {
   children: ReactNode;
-  as?: ElementType;
+  as?: ElementType<{ className?: string; children?: React.ReactNode }>;
   className?: string;
   delay?: number;
   duration?: number;
@@ -46,11 +46,11 @@ export const TypingText = ({
       if (Array.isArray(node)) {
         return node.map(extractText).join("");
       }
-      if (
-        React.isValidElement(node) &&
-        typeof node.props.children !== "undefined"
-      ) {
-        return extractText(node.props.children);
+      if (React.isValidElement(node)) {
+        const props = node.props as { children?: React.ReactNode };
+        if (typeof props.children !== "undefined") {
+          return extractText(props.children);
+        }
       }
       return "";
     };

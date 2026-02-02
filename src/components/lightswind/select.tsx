@@ -10,7 +10,7 @@ interface SelectContextType {
   onValueChange: (value: string) => void;
   open: boolean;
   setOpen: (open: boolean) => void;
-  triggerRef: React.RefObject<HTMLButtonElement>;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
 }
@@ -135,21 +135,23 @@ const SelectValue = React.forwardRef<HTMLSpanElement, SelectValueProps>(
 
     let displayValue: React.ReactNode = null;
 
+    type SelectChildProps = { value?: string; children?: React.ReactNode };
     const findDisplayValue = (nodes: React.ReactNode) => {
       React.Children.forEach(nodes, (node) => {
         if (!React.isValidElement(node)) return;
         if (displayValue) return;
 
+        const props = node.props as SelectChildProps;
         // Check if it's a SelectItem
         if (
-          (node.type as any).displayName === "SelectItem" &&
-          node.props.value === context.value
+          (node.type as React.ComponentType & { displayName?: string }).displayName === "SelectItem" &&
+          props.value === context.value
         ) {
-          displayValue = node.props.children;
+          displayValue = props.children;
         }
         // Check if it's a SelectGroup and recurse
-        else if ((node.type as any).displayName === "SelectGroup") {
-          findDisplayValue(node.props.children);
+        else if ((node.type as React.ComponentType & { displayName?: string }).displayName === "SelectGroup") {
+          findDisplayValue(props.children);
         }
       });
     };
@@ -397,14 +399,21 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
         }
         const lowerCaseQuery = searchQuery.toLowerCase();
 
+        type ChildProps = { children?: React.ReactNode };
         const getChildText = (child: React.ReactNode): string => {
             if (typeof child === "string" || typeof child === "number") {
                 return child.toString();
             }
-            if (React.isValidElement(child) && child.props.children) {
-                return React.Children.map(child.props.children, getChildText).join(
-                    ""
-                );
+            if (React.isValidElement(child)) {
+                const props = child.props as ChildProps;
+                const children = props.children;
+                if (children != null) {
+                    const mapped = React.Children.map(
+                        children as Exclude<React.ReactNode, null | undefined>,
+                        getChildText
+                    );
+                    return (mapped ?? []).join("");
+                }
             }
             return "";
         };
@@ -414,15 +423,17 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
                 return child;
             }
 
-            if ((child.type as any).displayName === "SelectGroup") {
+            const childProps = child.props as ChildProps;
+            if ((child.type as React.ComponentType & { displayName?: string }).displayName === "SelectGroup") {
                 const matchedItems = React.Children.toArray(
-                    child.props.children
+                    childProps.children
                 ).filter((groupChild) => {
                     if (
                         React.isValidElement(groupChild) &&
-                        (groupChild.type as any).displayName === "SelectItem"
+                        (groupChild.type as React.ComponentType & { displayName?: string }).displayName === "SelectItem"
                     ) {
-                        const text = getChildText(groupChild.props.children);
+                        const groupChildProps = groupChild.props as ChildProps;
+                        const text = getChildText(groupChildProps.children);
                         return text.toLowerCase().includes(lowerCaseQuery);
                     }
                     return false;
@@ -430,15 +441,15 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
 
                 if (matchedItems.length > 0) {
                     return React.cloneElement(child, {
-                        ...child.props,
+                        ...(child.props as any),
                         children: matchedItems,
                     });
                 }
                 return null;
             }
 
-            if ((child.type as any).displayName === "SelectItem") {
-                const text = getChildText(child.props.children);
+            if ((child.type as React.ComponentType & { displayName?: string }).displayName === "SelectItem") {
+                const text = getChildText(childProps.children);
                 return text.toLowerCase().includes(lowerCaseQuery) ? child : null;
             }
 

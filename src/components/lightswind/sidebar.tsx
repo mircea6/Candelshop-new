@@ -16,7 +16,7 @@ interface SidebarContextType {
     height: number;
   }>;
   menuItemRefs: React.MutableRefObject<Map<string, HTMLDivElement | null>>;
-  menuRef: React.RefObject<HTMLDivElement>;
+  menuRef: React.RefObject<HTMLDivElement | null>;
   updateIndicatorPosition: (id: string | null) => void;
   // New: Function to notify provider when a menu item ref is added/removed
   notifyMenuItemRefChange: () => void;
@@ -522,14 +522,15 @@ export function SidebarMenuButton({
         >
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
+              const childProps = child.props as any;
               return React.cloneElement(child, {
-                ...child.props,
+                ...childProps,
                 className: cn(
                   sharedClassName,
                   "justify-center p-2",
                   "hover:bg-primary/10 hover:scale-110",
                   isActive ? "text-primary font-medium" : "",
-                  child.props?.className
+                  childProps.className
                 ),
               });
             }
@@ -570,14 +571,15 @@ export function SidebarMenuButton({
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
+            const childProps = child.props as any;
             return React.cloneElement(child, {
-              ...child.props,
+              ...childProps,
               className: cn(
                 sharedClassName,
                 "justify-start gap-2",
                 "hover:bg-primary/10 hover:translate-x-1",
                 isActive ? "text-primary font-medium" : "",
-                child.props?.className
+                childProps.className
               ),
             });
           }

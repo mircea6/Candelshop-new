@@ -1,5 +1,4 @@
 "use client";
-'use client';
 
 import { useRef, useEffect } from 'react';
 import {
@@ -10,9 +9,13 @@ import {
   useVelocity,
   useAnimationFrame,
   useMotionValue,
-} from 'motion/react';
-import { wrap } from '@motionone/utils';
+} from 'framer-motion';
 import { cn } from '../../lib/utils';
+
+function wrap(min: number, max: number, v: number): number {
+  const range = max - min;
+  return min + ((((v - min) % range) + range) % range);
+}
 
 interface TextScrollMarqueeProps {
   children: string;

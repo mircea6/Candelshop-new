@@ -83,12 +83,13 @@ const SheetTrigger = React.forwardRef<HTMLButtonElement, SheetTriggerProps>(
       }
 
       // Use the memoized `mergedRef` inside the conditional block.
+      const childProps = child.props as any;
       return React.cloneElement(child, {
-        ...child.props,
+        ...childProps,
         ...props, // Pass down props like className, etc., to the child
         onClick: (e: React.MouseEvent) => {
           setOpen(true);
-          if (child.props.onClick) child.props.onClick(e);
+          if (childProps.onClick) childProps.onClick(e);
         },
         ref: mergedRef,
       });
