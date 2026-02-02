@@ -36,10 +36,39 @@ export default function Home() {
     {
       title: "Produse realizate din ceara de soia naturala 100%",
       backgroundImage: "/Background-Cards.png",
+      content: (
+        <div className="flex items-center justify-center gap-4 sm:gap-6 h-full w-full px-4">
+          <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 relative">
+            <Image
+              src="/Icon-soia-removebg-preview.png"
+              alt="Handmade"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight text-center max-w-md">
+            Produse realizate din ceara de soia naturala 100%
+          </h3>
+        </div>
+      ),
     },
     {
       title: "Parfumanti de inalta calitate care persista si creaza o experienta unica",
       backgroundImage: "/Background-Cards.png",
+      content: (
+        <div className="flex items-center justify-center gap-4 sm:gap-6 h-full w-full px-4">
+          <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 relative">
+            <Image
+              src="/Icon-aroma-removebg-preview.png"
+              alt="Handmade"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight text-center max-w-md">
+            Parfumanti de inalta calitate care persista si creaza o experienta unica          </h3>
+        </div>
+      ),
     },
   ];
 
