@@ -25,11 +25,14 @@ export default function Home() {
       title: "Parfumanti de inalta calitate care persista si creaza o experienta unica",
 
     },
-    
+
   ];
 
   return (
-    <div className="text-center mb-12 relative">
+    <div className="text-center mb-12">
+      <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
+        Bine ai venit în magazinul nostru!
+      </h1>
       <HeroSlider />
       {/* Secțiune ScrollStack centrată sub Hero */}
       <section className="w-full flex justify-center px-4 py-8">
@@ -47,38 +50,9 @@ export default function Home() {
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
-            Homepage - Magazin Lumânări
+            Cele mai vandute produse
           </h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-            Bine ai venit în magazinul nostru!
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-           
-            <Link
-              href="/produse"
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-            >
-              Vezi Produse →
-            </Link>
-            <Link
-              href="/PoliticaCookie"
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-            >
-              Politica de Cookie →
-            </Link>
-            <Link
-              href="/PoliticaGDPR"
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-            >
-              Politica GDPR →
-            </Link>
-            <Link
-              href="/Contact"
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-zinc-800 transition-colors dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200"
-            >
-              Contact →
-            </Link>
-          </div>
+
         </div>
 
         {
