@@ -73,10 +73,10 @@ export default function Cart() {
                     {item.product.name}
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400 mb-2">
-                    {item.product.description}
+                   {item.product.price} {item.product.currency}
                   </p>
                   <p className="text-lg font-bold text-black dark:text-zinc-50">
-                    {item.product.price} {item.product.currency}
+                  {item.product.description} 
                   </p>
                 </div>
 

@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <div className="text-center mb-12">
-      <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-12">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black dark:text-zinc-50 mb-24">
         Bine ai venit în magazinul nostru!
       </h1>
       <HeroSlider />
@@ -117,31 +117,31 @@ export default function Home() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
+                  className="bg-white dark:bg-zinc-900 rounded-lg  border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
                 >
                   {product.image && (
-                    <div className="mb-4 w-full aspect-square relative rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                    <div className="mb-4 w-full min-h-[320px] aspect-[3/4] relative overflow-hidden">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
-                        className="object-contain p-2"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   )}
-                  <h2 className="text-xl font-semibold mb-2 text-black dark:text-zinc-50">
+                  <h2 className="text-xl font-semibold mb-1 text-black dark:text-zinc-50">
                     {product.name}
                   </h2>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                    {product.description}
-                  </p>
-                  <p className="text-2xl font-bold text-black dark:text-zinc-50">
+
+                  <p className="text-2xl font-bold mb-6 text-black dark:text-zinc-50">
                     {product.price} {product.currency}
                   </p>
                   <button
                     onClick={() => addToCart(product)}
-                    className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                    className="w-full py-3 border border-black bg-white text-black font-medium
+                      hover:bg-black hover:text-white transition-colors duration-200
+                      dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black"
                   >
                     Adaugă în coș
                   </button>
