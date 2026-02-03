@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+const VIDEO_URL =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_DESPRE_NOI_VIDEO_URL
+    ? process.env.NEXT_PUBLIC_DESPRE_NOI_VIDEO_URL
+    : null;
+
 export default function DespreNoi() {
   return (
     <div
@@ -7,7 +12,7 @@ export default function DespreNoi() {
         pt-14 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-52
         -mt-14 sm:-mt-16 md:-mt-20 lg:-mt-24 xl:-mt-52"
     >
-      {/* Video fundal: acoperă tot spațiul inclusiv zona de sub navbar; object-cover = responsive pe toate ecranele */}
+      {/* Video fundal: URL din env (Vercel) sau fișiere din public/ (local). Pe Vercel fișierele sunt excluse (.vercelignore). */}
       <video
         autoPlay
         loop
@@ -16,8 +21,14 @@ export default function DespreNoi() {
         className="absolute inset-0 w-full h-full min-w-full min-h-full object-cover opacity-[0.28]"
         aria-hidden
       >
-        <source src="/loop-desprenoi.mp4" type="video/mp4" />
-        <source src="/loop-desprenoi.mov" type="video/quicktime" />
+        {VIDEO_URL ? (
+          <source src={VIDEO_URL} type="video/mp4" />
+        ) : (
+          <>
+            <source src="/loop-desprenoi.mp4" type="video/mp4" />
+            <source src="/loop-desprenoi.mov" type="video/quicktime" />
+          </>
+        )}
       </video>
 
       {/* Pas 2: Conținutul pe un strat de deasupra (z-10) cu fundal ușor transparent pentru lizibilitate */}
