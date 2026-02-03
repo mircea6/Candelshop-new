@@ -1,0 +1,3 @@
+# Exclude fișiere peste limita Vercel (100 MB)
+public/loop-desprenoi.mp4
+public/loop-desprenoi.mov
