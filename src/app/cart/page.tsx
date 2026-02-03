@@ -26,10 +26,7 @@ export default function Cart() {
           <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
             Coș de Cumpărături
           </h1>
-          <Link
-            href="/"
-            className="text-blue-600 hover:underline dark:text-blue-400"
-          >
+          <Link href="/" className="btn-back">
             ← Înapoi la Homepage
           </Link>
         </div>
@@ -40,10 +37,7 @@ export default function Cart() {
             <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-4">
               Coșul tău este gol
             </p>
-            <Link
-              href="/"
-              className="text-blue-600 hover:underline dark:text-blue-400"
-            >
+            <Link href="/" className="btn-back">
               Continuă cumpărăturile
             </Link>
           </div>

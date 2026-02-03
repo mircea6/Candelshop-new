@@ -43,7 +43,7 @@ export default function TerenAntrenament() {
                     <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
                         Teren de Antrenament - useState & useContext
                     </h1>
-                    <Link href="/" className="text-blue-600 hover:underline">
+                    <Link href="/" className="btn-back">
                         ← Înapoi la Homepage
                     </Link>
                 </div>

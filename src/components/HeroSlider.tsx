@@ -20,7 +20,7 @@ export default function HeroSlider() {
     setCurrent((i) => (i + 1) % SLIDES.length);
   };
   return (
-    <section className="relative w-full h-screen min-h-[320px] overflow-hidden bg-zinc-200">
+    <section className="relative w-full h-[50vh] min-h-[240px] sm:h-[60vh] sm:min-h-[320px] md:h-[70vh] lg:h-screen overflow-hidden bg-zinc-200">
       {/* Container pentru toate slide-urile - se translatează pe orizontală */}
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
@@ -50,9 +50,9 @@ export default function HeroSlider() {
         type="button"
         onClick={goPrev}
         aria-label="Slide anterior"
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white hover:bg-zinc-100 text-black transition-colors shadow-lg"
+        className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-black transition-colors shadow-lg touch-manipulation"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
@@ -62,9 +62,9 @@ export default function HeroSlider() {
         type="button"
         onClick={goNext}
         aria-label="Slide următor"
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white hover:bg-zinc-100 text-black transition-colors shadow-lg"
+        className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-black transition-colors shadow-lg touch-manipulation"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>

@@ -24,35 +24,35 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black py-24 px-4">
+    <div className="min-h-screen bg-[#F6F4F1] py-24 px-4">
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-block mb-8 text-blue-600 hover:underline dark:text-blue-400">
+        <Link href="/" className="btn-back mb-8">
           ← Înapoi la Homepage
         </Link>
 
-        <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-8">
+        <h1 className="text-4xl font-bold text-zinc-900 mb-8">
           Contact
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Detalii firme */}
           <div>
-            <h2 className="text-2xl font-semibold text-black dark:text-zinc-50 mb-4">
+            <h2 className="text-2xl font-semibold text-zinc-900 mb-4">
               Date de contact
             </h2>
-            <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
+            <div className="space-y-4 text-zinc-700">
               <div>
-                <p className="font-semibold text-black dark:text-zinc-50">Telefon:</p>
+                <p className="font-semibold text-zinc-900">Telefon:</p>
                 <a href="tel:0767193920" className="hover:underline">0767 193 920</a>
               </div>
               <div>
-                <p className="font-semibold text-black dark:text-zinc-50">Email:</p>
+                <p className="font-semibold text-zinc-900">Email:</p>
                 <a href="mailto:contact@candlestory.ro" className="hover:underline">
                   contact@candlestory.ro
                 </a>
               </div>
               <div>
-                <p className="font-semibold text-black dark:text-zinc-50">Adresă:</p>
+                <p className="font-semibold text-zinc-900">Adresă:</p>
                 <p>București, România</p>
               </div>
             </div>
@@ -60,7 +60,7 @@ export default function Contact() {
 
           {/* Formular */}
           <div>
-            <h2 className="text-2xl font-semibold text-black dark:text-zinc-50 mb-4">
+            <h2 className="text-2xl font-semibold text-zinc-900 mb-4">
               Trimite un mesaj
             </h2>
             {submitted ? (
@@ -70,7 +70,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black dark:text-zinc-50">
+                  <label className="block mb-2 text-sm font-medium text-zinc-900">
                     Nume *
                   </label>
                   <input
@@ -79,11 +79,11 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50"
+                    className="w-full px-4 py-2 border border-zinc-300 rounded-lg bg-white text-zinc-900"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black dark:text-zinc-50">
+                  <label className="block mb-2 text-sm font-medium text-zinc-900">
                     Email *
                   </label>
                   <input
@@ -92,11 +92,11 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50"
+                    className="w-full px-4 py-2 border border-zinc-300 rounded-lg bg-white text-zinc-900"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black dark:text-zinc-50">
+                  <label className="block mb-2 text-sm font-medium text-zinc-900">
                     Telefon
                   </label>
                   <input
@@ -104,11 +104,11 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50"
+                    className="w-full px-4 py-2 border border-zinc-300 rounded-lg bg-white text-zinc-900"
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black dark:text-zinc-50">
+                  <label className="block mb-2 text-sm font-medium text-zinc-900">
                     Mesaj *
                   </label>
                   <textarea
@@ -117,7 +117,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50"
+                    className="w-full px-4 py-2 border border-zinc-300 rounded-lg bg-white text-zinc-900"
                   />
                 </div>
                 <button

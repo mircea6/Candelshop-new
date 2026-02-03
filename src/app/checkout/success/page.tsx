@@ -18,10 +18,7 @@ export default function CheckoutSuccess() {
         <p className="text-zinc-600 dark:text-zinc-400 mb-6">
           Mulțumim pentru comandă. Vei primi un email de confirmare.
         </p>
-        <Link
-          href="/"
-          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
+        <Link href="/" className="btn-back">
           Înapoi la homepage
         </Link>
       </div>

@@ -10,8 +10,8 @@ export default function PoliticaGDPR() {
         <p>
             Acesta este un site de test si nu are o politica GDPR momentan!
         </p>
-        <Link href="/">
-        ← Înapoi la Homepage
+        <Link href="/" className="btn-back">
+          ← Înapoi la Homepage
         </Link>
       </main>
     </div>

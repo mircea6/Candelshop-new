@@ -106,7 +106,7 @@ export default function Checkout() {
       <div className="min-h-screen bg-zinc-50 dark:bg-black p-8">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-2xl font-bold mb-4">Coșul este gol</h1>
-          <Link href="/" className="text-blue-600 hover:underline">
+          <Link href="/" className="btn-back">
             Continuă cumpărăturile
           </Link>
         </div>
@@ -122,10 +122,7 @@ export default function Checkout() {
           <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
             Finalizează Comanda
           </h1>
-          <Link
-            href="/cart"
-            className="text-blue-600 hover:underline dark:text-blue-400"
-          >
+          <Link href="/cart" className="btn-back">
             ← Înapoi la Coș
           </Link>
         </div>

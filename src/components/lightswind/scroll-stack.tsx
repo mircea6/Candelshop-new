@@ -44,8 +44,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   const cardStyle = {
     height: cardHeight,
-    maxHeight: "500px",
-    borderRadius: "20px",
     transition: `transform ${animationDuration} cubic-bezier(0.19, 1, 0.22, 1), opacity ${animationDuration} cubic-bezier(0.19, 1, 0.22, 1)`,
     willChange: "transform, opacity",
   };
@@ -136,10 +134,10 @@ return (
         className={`sticky top-0 w-full h-screen flex items-center 
             justify-center overflow-hidden ${backgroundColor}`} // Applied as a Tailwind class
       >
-        <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col justify-center">
+        <div className="container px-3 sm:px-4 md:px-6 lg:px-8 mx-auto h-full flex flex-col justify-center">
           <div
             ref={cardsContainerRef}
-            className="relative w-full max-w-5xl mx-auto flex-shrink-0"
+            className="relative w-full max-w-5xl mx-auto flex-shrink-0 min-h-[260px] sm:min-h-[320px]"
             style={{ height: cardHeight }}
           >
             {cards.slice(0, 5).map((card, index) => {
@@ -152,7 +150,7 @@ return (
                 <div
                   key={index}
                   className={`absolute z-50 overflow-hidden shadow-xl 
-                      transition-all duration-300`}
+                      transition-all duration-300 max-h-[280px] sm:max-h-[340px] md:max-h-[400px] lg:max-h-[500px] rounded-2xl sm:rounded-3xl`}
                   style={{
                     ...cardStyle,
                     top: 0,
@@ -186,7 +184,7 @@ return (
                     </div>
                   )}
 
-                  <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center justify-center">
+                  <div className="relative z-10 p-3 sm:p-5 md:p-6 lg:p-8 h-full flex items-center justify-center">
                     {card.content ? (
                       card.content
                     ) : (

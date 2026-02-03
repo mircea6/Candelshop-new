@@ -73,13 +73,16 @@ export default function Home() {
   ];
 
   return (
-    <div className="text-center mb-12">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black dark:text-zinc-50 mb-24">
+    <div className="text-center">
+      <h1 className="font-bold text-zinc-900 px-3 sm:px-4
+        text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl
+        pt-6 sm:pt-8 md:pt-10 lg:pt-8 xl:pt-10 2xl:pt-12
+        pb-6 sm:pb-8 md:pb-10 lg:pb-12 xl:pb-16 2xl:pb-24">
         Bine ai venit în magazinul nostru!
       </h1>
       <HeroSlider />
       {/* Secțiune ScrollStack centrată sub Hero */}
-      <section className="w-full flex justify-center px-4 py-8">
+      <section className="w-full flex justify-center px-3 sm:px-4 py-6 sm:py-8">
         <div className="w-full max-w-4xl">
           <ScrollStack
             cards={scrollStackCards}
@@ -92,9 +95,9 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
+      <main className="container mx-auto px-3 sm:px-4 md:px-6 py-6 sm:py-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
             Cele mai vandute produse
           </h1>
 
@@ -102,47 +105,46 @@ export default function Home() {
 
         {
           loading ? (
-            <div className="text-center py-12">
-              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            <div className="text-center py-8 sm:py-12">
+              <p className="text-base sm:text-lg text-zinc-600">
                 Se încarcă produsele...
               </p>
             </div>
           ) : error ? (
-            <div className="text-center py-12">
-              <p className="text-lg text-red-600 dark:text-red-400">
+            <div className="text-center py-8 sm:py-12">
+              <p className="text-base sm:text-lg text-red-600">
                 Eroare: {error}
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-transparent rounded-lg  border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
+                  className="bg-transparent rounded-lg border-zinc-200 dark:border-zinc-800 p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow"
                 >
                   {product.image && (
-                    <div className="mb-4 w-full min-h-[320px] aspect-[3/4] relative overflow-hidden">
+                    <div className="mb-3 sm:mb-4 w-full min-h-[200px] sm:min-h-[260px] md:min-h-[300px] lg:min-h-[320px] aspect-[3/4] relative overflow-hidden rounded-lg">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                   )}
-                  <h2 className="text-xl font-semibold mb-1 text-black dark:text-zinc-50">
+                  <h2 className="text-base sm:text-lg md:text-xl font-semibold mb-1 text-zinc-900 line-clamp-2">
                     {product.name}
                   </h2>
 
-                  <p className="text-2xl font-bold mb-6 text-black dark:text-zinc-50">
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-zinc-900">
                     {product.price} {product.currency}
                   </p>
                   <button
                     onClick={() => addToCart(product)}
-                    className="w-full py-3 border border-black bg-white text-black font-medium
-                      hover:bg-black hover:text-white transition-colors duration-200
-                      dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black"
+                    className="w-full py-2.5 sm:py-3 border border-zinc-800 bg-white text-zinc-900 text-sm sm:text-base font-medium
+                      hover:bg-zinc-800 hover:text-white transition-colors duration-200 touch-manipulation"
                   >
                     Adaugă în coș
                   </button>

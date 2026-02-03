@@ -43,10 +43,7 @@ export default function AdminComenzi() {
           <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
             Comenzi
           </h1>
-          <Link
-            href="/"
-            className="text-blue-600 hover:underline dark:text-blue-400"
-          >
+          <Link href="/" className="btn-back">
             ← Înapoi la Homepage
           </Link>
         </div>

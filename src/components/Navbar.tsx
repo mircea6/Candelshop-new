@@ -19,19 +19,18 @@ export default function Navbar() {
         <header
             className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-zinc-200"
         >
-            <div className="max-w-7xl mx-auto px-2 h-32 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 h-14 sm:h-16 md:h-20 lg:h-24 xl:h-32 flex items-center justify-between">
                 {/* Stânga: meniu hamburger */}
-                <div className="w-5 flex justify-center">
+                <div className="w-10 sm:w-12 flex justify-center shrink-0">
                     <button
                         type="button"
                         onClick={() => setMenuOpen(true)}
                         aria-label="Deschide meniul"
-                        className="p-2 hover:bg-zinc-100 rounded-lg transition-colors"
+                        className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-lg transition-colors touch-manipulation"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="40"
-                            height="40"
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -45,26 +44,27 @@ export default function Navbar() {
                     </button>
                 </div>
                 {/* Centru: logo */}
-                <Link href="/" className="flex-shrink-0">
+                <Link href="/" className="flex-shrink-0 max-w-[50vw] sm:max-w-none">
                     <Image
                         src="/logo-candelstore.jpg"
                         alt="Logo magazin"
                         width={280}
                         height={120}
-                        className="h-32 w-auto object-contain"
+                        className="h-10 sm:h-12 md:h-16 lg:h-20 xl:h-32 w-auto object-contain"
                         unoptimized
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 200px, 280px"
                     />
                 </Link>
-                {/* Dreapta: social, telefon, coș */}
-                <div className="w-5 flex items-center justify-end gap-2">
+                {/* Dreapta: social, coș */}
+                <div className="w-10 sm:w-12 flex items-center justify-end gap-0.5 sm:gap-1 shrink-0">
                     <a
                         href="https://www.instagram.com/candle_stories_handmade?igsh=ZGc5NHhnZ3pycWNp"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
-                        className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
+                        className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
                             <defs>
                                 <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stopColor="#833AB4" />
@@ -81,9 +81,9 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="TikTok"
-                        className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
+                        className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" viewBox="0 0 24 24" fill="#000000">
                             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                         </svg>
                     </a>
@@ -93,9 +93,9 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Sună pe WhatsApp"
-                        className="p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
+                        className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                     </a>
@@ -103,15 +103,15 @@ export default function Navbar() {
                     <Link
                         href="/cart"
                         aria-label={`Coș: ${totalItems} produse`}
-                        className="relative p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110"
+                        className="relative p-1.5 sm:p-2 hover:bg-zinc-100 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="9" cy="21" r="1" />
                             <circle cx="20" cy="21" r="1" />
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                         </svg>
                         {totalItems > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center">
+                            <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 bg-blue-600 text-white text-[10px] sm:text-xs font-bold min-w-[14px] h-[14px] sm:min-w-[18px] sm:h-[18px] rounded-full flex items-center justify-center">
                                 {totalItems}
                             </span>
                         )}

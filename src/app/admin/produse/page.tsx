@@ -119,10 +119,7 @@ export default function AdminProduse() {
           <h1 className="text-4xl font-bold text-black dark:text-zinc-50 mb-4">
             Pagină de Încărcare Produse
           </h1>
-          <Link
-            href="/"
-            className="text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-zinc-50"
-          >
+          <Link href="/" className="btn-back">
             ← Înapoi la Homepage
           </Link>
         </div>

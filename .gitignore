@@ -42,3 +42,7 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# Video mari (peste limita GitHub 100 MB) – hostează pe CDN/extern și pune URL în cod
+/public/loop-desprenoi.mp4
+/public/loop-desprenoi.mov
