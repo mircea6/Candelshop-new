@@ -17,6 +17,8 @@ interface ScrollStackProps {
   sectionHeightMultiplier?: number;
   intersectionThreshold?: number;
   className?: string;
+  /** Conținut afișat sub carduri, în zona vizibilă (ex: buton Despre noi) */
+  bottomContent?: React.ReactNode;
 }
 
 const defaultBackgrounds = [
@@ -33,6 +35,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   sectionHeightMultiplier = 3,
   intersectionThreshold = 0.1,
   className = "",
+  bottomContent,
 }) => {
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -134,7 +137,7 @@ return (
         className={`sticky top-0 w-full h-screen flex items-center 
             justify-center overflow-hidden ${backgroundColor}`} // Applied as a Tailwind class
       >
-        <div className="container px-3 sm:px-4 md:px-6 lg:px-8 mx-auto h-full flex flex-col justify-center">
+        <div className="container px-3 sm:px-4 md:px-6 lg:px-8 mx-auto h-full flex flex-col justify-center items-center">
           <div
             ref={cardsContainerRef}
             className="relative w-full max-w-5xl mx-auto flex-shrink-0 min-h-[260px] sm:min-h-[320px]"
@@ -204,6 +207,11 @@ return (
               );
             })}
           </div>
+          {bottomContent && (
+            <div className="w-full flex justify-center flex-shrink-0 -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-12">
+              {bottomContent}
+            </div>
+          )}
         </div>
       </div>
     </div>

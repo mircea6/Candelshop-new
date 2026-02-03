@@ -81,8 +81,8 @@ export default function Home() {
         Bine ai venit în magazinul nostru!
       </h1>
       <HeroSlider />
-      {/* Secțiune ScrollStack centrată sub Hero */}
-      <section className="w-full flex justify-center px-3 sm:px-4 py-6 sm:py-8">
+      {/* Secțiune ScrollStack centrată sub Hero – butonul Despre noi în zona vizibilă sub carduri */}
+      <section className="w-full flex flex-col items-center justify-center px-3 sm:px-4 py-6 sm:py-8">
         <div className="w-full max-w-4xl">
           <ScrollStack
             cards={scrollStackCards}
@@ -91,11 +91,27 @@ export default function Home() {
             sectionHeightMultiplier={4}
             className="mx-auto"
             backgroundColor="bg-transparent"
+            bottomContent={
+              <Link
+                href="/DespreNoi"
+                className="px-6 py-3.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-semibold text-white
+                  bg-cover bg-center bg-no-repeat transition-transform duration-200 hover:scale-105
+                  inline-flex items-center justify-center gap-2 min-h-[48px] sm:min-h-[52px] touch-manipulation
+                  text-base sm:text-lg md:text-xl"
+                style={{ backgroundImage: "url('/Background-Cards.png')" }}
+                aria-label="Mergi la pagina Despre noi"
+              >
+                Despre noi
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            }
           />
         </div>
       </section>
 
-      <main className="container mx-auto px-3 sm:px-4 md:px-6 py-6 sm:py-8">
+      <main className="container mx-auto px-3 sm:px-4 md:px-6 pt-6 sm:pt-8 pb-6 sm:pb-8">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
             Cele mai vandute produse
