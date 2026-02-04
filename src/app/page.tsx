@@ -74,12 +74,6 @@ export default function Home() {
 
   return (
     <div className="text-center">
-      <h1 className="font-bold text-zinc-900 px-3 sm:px-4
-        text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl
-        pt-6 sm:pt-8 md:pt-10 lg:pt-8 xl:pt-10 2xl:pt-12
-        pb-6 sm:pb-8 md:pb-10 lg:pb-12 xl:pb-16 2xl:pb-24">
-        Bine ai venit în magazinul nostru!
-      </h1>
       <HeroSlider />
       {/* Secțiune ScrollStack centrată sub Hero – butonul Despre noi în zona vizibilă sub carduri */}
       <section className="w-full flex flex-col items-center justify-center px-3 sm:px-4 py-6 sm:py-8">
@@ -113,7 +107,7 @@ export default function Home() {
 
       <main className="container mx-auto px-3 sm:px-4 md:px-6 pt-6 sm:pt-8 pb-6 sm:pb-8">
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+          <h1 className="font-bold text-zinc-900 mb-4 text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
             Cele mai vandute produse
           </h1>
 
@@ -137,15 +131,16 @@ export default function Home() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-transparent rounded-lg border-zinc-200 dark:border-zinc-800 p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow"
+                  className="bg-transparent rounded-xl overflow-hidden p-2 sm:p-3
+                    shadow-none hover:scale-[1.02] transition-all duration-200"
                 >
                   {product.image && (
-                    <div className="mb-3 sm:mb-4 w-full min-h-[200px] sm:min-h-[260px] md:min-h-[300px] lg:min-h-[320px] aspect-[3/4] relative overflow-hidden rounded-lg">
+                    <div className="mb-2 sm:mb-3 w-full min-h-[260px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] aspect-3/4 relative overflow-hidden rounded-lg">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>

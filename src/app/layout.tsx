@@ -6,6 +6,7 @@ import { TrainingProvider } from "@/context/TrainingContext";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,6 +31,7 @@ export default function RootLayout({
                 {children}
               </main>
               <Footer />
+              <WhatsAppButton />
             </CartProvider>
           </TrainingProvider>
         </Providers>

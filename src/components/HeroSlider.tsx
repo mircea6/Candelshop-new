@@ -20,15 +20,39 @@ export default function HeroSlider() {
     setCurrent((i) => (i + 1) % SLIDES.length);
   };
   return (
-    <section className="relative w-full h-[50vh] min-h-[240px] sm:h-[60vh] sm:min-h-[320px] md:h-[70vh] lg:h-screen overflow-hidden bg-zinc-200">
-      {/* Container pentru toate slide-urile - se translatează pe orizontală */}
+    <section className="relative w-full h-screen min-h-[400px] overflow-hidden bg-[#EEECE8]
+      -mt-14 sm:-mt-16 md:-mt-20 lg:-mt-24 xl:-mt-52">
+      {/* Container pentru toate slide-urile – mesajul e în prima slide și pleacă odată cu poza */}
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
-        {SLIDES.map((slide, index) => (
+        {/* Prima slide: imagine + mesaj „Bine ai venit” (se mișcă împreună) */}
+        <div className="w-full h-full flex-shrink-0 relative">
+          <Link href={SLIDES[0].link} className="block w-full h-full relative">
+            <Image
+              src={SLIDES[0].image}
+              alt={SLIDES[0].alt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+              unoptimized
+            />
+          </Link>
+          <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
+            <div className="bg-[#EEECE8]/85 px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 rounded-xl shadow-lg max-w-[90vw] border border-[#E0DDD8]/80 backdrop-blur-sm">
+              <h1 className="font-bold text-zinc-900 text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+                Bine ai venit în magazinul nostru!
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide 2 și 3 */}
+        {SLIDES.slice(1).map((slide, index) => (
           <Link
-            key={index}
+            key={index + 1}
             href={slide.link}
             className="block w-full h-full relative flex-shrink-0"
           >
@@ -38,7 +62,6 @@ export default function HeroSlider() {
               fill
               className="object-cover"
               sizes="100vw"
-              priority={index === 0}
               unoptimized
             />
           </Link>

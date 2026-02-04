@@ -19,7 +19,7 @@ export default function Cart() {
   const totalItems = getTotalItems();
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black p-8">
+    <div className="min-h-screen bg-[#F6F4F1] p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -127,13 +127,16 @@ export default function Cart() {
               </div>
               <button
                 onClick={clearCart}
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                className="px-4 py-2.5 sm:py-3 border border-zinc-800 bg-white text-zinc-900 text-sm sm:text-base font-medium rounded-lg
+                  hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors duration-200 touch-manipulation"
               >
                 Golește coșul
               </button>
             </div>
-            <Link              href="/checkout"
-              className="block w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-center">
+            <Link
+              href="/checkout"
+              className="block w-full py-3 text-center btn-back font-medium"
+            >
               Finalizează comanda
             </Link>
           </div>

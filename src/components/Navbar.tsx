@@ -111,7 +111,7 @@ export default function Navbar() {
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                         </svg>
                         {totalItems > 0 && (
-                            <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 bg-blue-600 text-white text-[10px] sm:text-xs font-bold min-w-[14px] h-[14px] sm:min-w-[18px] sm:h-[18px] rounded-full flex items-center justify-center">
+                            <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 bg-red-600 text-white text-[10px] sm:text-xs font-bold min-w-[14px] h-[14px] sm:min-w-[18px] sm:h-[18px] rounded-full flex items-center justify-center">
                                 {totalItems}
                             </span>
                         )}

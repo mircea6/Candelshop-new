@@ -103,7 +103,7 @@ export default function Checkout() {
   // Dacă coșul este gol, redirecționează
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-black p-8">
+      <div className="min-h-screen bg-[#F6F4F1] p-8">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-2xl font-bold mb-4">Coșul este gol</h1>
           <Link href="/" className="btn-back">
@@ -115,7 +115,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black p-8">
+    <div className="min-h-screen bg-[#F6F4F1] p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -146,7 +146,7 @@ export default function Checkout() {
                   value={formData.customerName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#E8D5B7] focus:border-[#E8D5B7]"
                 />
               </div>
 
@@ -161,7 +161,7 @@ export default function Checkout() {
                   value={formData.customerEmail}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#E8D5B7] focus:border-[#E8D5B7]"
                 />
               </div>
 
@@ -176,7 +176,7 @@ export default function Checkout() {
                   value={formData.customerPhone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#E8D5B7] focus:border-[#E8D5B7]"
                 />
               </div>
 
@@ -191,7 +191,7 @@ export default function Checkout() {
                   onChange={handleChange}
                   required
                   rows={3}
-                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#E8D5B7] focus:border-[#E8D5B7]"
                 />
               </div>
 
@@ -205,7 +205,7 @@ export default function Checkout() {
                   value={formData.paymentMethod}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-black dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-[#E8D5B7] focus:border-[#E8D5B7]"
                 >
                   <option value="ramburs">Ramburs (la livrare)</option>
                   <option value="card">Card bancar</option>
@@ -219,11 +219,11 @@ export default function Checkout() {
                 </div>
               )}
 
-              {/* Buton submit */}
+              {/* Buton submit – stil ca Înapoi la coș (auriu pal, rotund, hover scale) */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-zinc-400 disabled:cursor-not-allowed transition-colors font-medium"
+                className="w-full py-3 text-center rounded-full bg-[#E8D5B7] text-black font-medium transition-all duration-200 hover:scale-[1.05] disabled:bg-zinc-400 disabled:text-zinc-600 disabled:hover:scale-100 disabled:cursor-not-allowed"
               >
                 {loading ? "Se procesează..." : "Plătește Comanda"}
               </button>
